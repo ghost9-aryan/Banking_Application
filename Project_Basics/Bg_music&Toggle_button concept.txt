@@ -1,0 +1,23 @@
+import tkinter as tk
+import pygame 
+
+pygame.init()
+
+def play_or_stop_background_music():
+    if music_playing.get() == 1:
+        pygame.mixer.music.load("C:\\Users\\aryan\\Desktop\\bg.mp3")
+        pygame.mixer.music.play(-1)
+    else:
+        pygame.mixer.music.stop()
+
+app = tk.Tk()
+app.title("Background Music Player")
+app.state('zoomed')
+
+# Use a tkinter IntVar to store the toggle state (0 for off, 1 for on)
+music_playing = tk.IntVar()
+
+toggle_button = tk.Checkbutton(app, text="Toggle Music", variable=music_playing, command=play_or_stop_background_music)
+toggle_button.pack()
+
+app.mainloop()

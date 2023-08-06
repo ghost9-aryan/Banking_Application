@@ -1,0 +1,16 @@
+import pyttsx3
+
+#Setting Voice
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+
+# changing index changes voices but only 0(male) and 1(female) are available!!
+engine.setProperty('voice', voices[0].id)
+engine.runAndWait()
+
+while True:
+    k=input("What to read?  : ")
+    if k=='exit' or k=='quit':
+        break
+    else:
+        pyttsx3.speak(k)

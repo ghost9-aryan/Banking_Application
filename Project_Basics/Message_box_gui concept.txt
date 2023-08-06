@@ -1,0 +1,51 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Create the main application window
+root = tk.Tk()
+root.title("Message Box Example")
+
+# Information Message Box
+def show_info_box():
+    messagebox.showinfo("Information", "This is an information message.")
+
+info_button = tk.Button(root, text="Show Info Box", command=show_info_box)
+info_button.pack()
+
+# Warning Message Box
+def show_warning_box():
+    messagebox.showwarning("Warning", "This is a warning message.")
+
+warning_button = tk.Button(root, text="Show Warning Box", command=show_warning_box)
+warning_button.pack()
+
+# Error Message Box
+def show_error_box():
+    messagebox.showerror("Error", "This is an error message.")
+
+error_button = tk.Button(root, text="Show Error Box", command=show_error_box)
+error_button.pack()
+
+# Question Message Box
+def show_question_box():
+    result = messagebox.askquestion("Question", "Do you want to proceed?")
+    if result == "yes":
+        print("User clicked 'Yes'")
+    else:
+        print("User clicked 'No'")
+
+question_button = tk.Button(root, text="Show Question Box", command=show_question_box)
+question_button.pack()
+
+# Information Message Box with OK/Cancel buttons
+def show_ok_cancel_box():
+    result = messagebox.askokcancel("OK/Cancel", "Do you want to continue?")
+    if result:
+        print("User clicked 'OK'")
+    else:
+        print("User clicked 'Cancel'")
+
+ok_cancel_button = tk.Button(root, text="Show OK/Cancel Box", command=show_ok_cancel_box)
+ok_cancel_button.pack()
+
+root.mainloop()
